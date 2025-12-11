@@ -11,7 +11,11 @@ load_dotenv()
 # ---------------- CONFIG -------------------
 st.set_page_config(page_title="TaskFlow RAG Agent", layout="wide")
 
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+try:
+    GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
+except Exception:
+    GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+
 
 if not GOOGLE_API_KEY:
     st.error("❌ GOOGLE_API_KEY missing. Add it in your .env file.", icon="🚨")
