@@ -1,1 +1,4 @@
-pip install python-dotenv google-generativeai
+streamlit
+google-generativeai
+pdfminer.six
+numpy
